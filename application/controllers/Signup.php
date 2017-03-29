@@ -52,15 +52,16 @@ $user_data=$user_data+$error;
                                                  "permission_id"=>2);
                                 $this->Users_model->add_permissions($delete);
                              }
-                        
-                          if ($this->input->post("search")!=null)
+                             else 
                              {
-                                
-                                 
-                                     $search=array(	"user_id"=>$id,
-                                                 "permission_id"=>1);
-                          $this->Users_model->add_permissions($search);
+                                 $delete=array(	"user_id"=>$id,
+                                                 "permission_id"=>0);
+                                $this->Users_model->add_permissions($delete);
+
+
                              }
+                        
+
 
                         
                      }

@@ -46,10 +46,15 @@
 
 	    	<div class="sidebar-wrapper">
 				<ul class="nav">
-				<?php	if ($this->session->userdata("user_type"==1)||($this->session->userdata("user_type"==2)&&($this->session->userdata("permissions")[0]->permission_id==1)))
-				{ ?>
+				<?php	
+				
+				if ($this->session->userdata("user_type"==1)||($this->session->userdata("user_type")==2&&($this->session->userdata("permissions")[0]->permission_id== '1')))
+				{ 
+				
+				
+				?>
 	                <li >
-	                    <a href="search.html">
+	                    <a href="<?php echo $this->config->base_url(); ?>Redirect/SearchPage">
 	                        <i class="material-icons">search</i>
 	                        <p>search</p>
 	                    </a>
@@ -60,7 +65,7 @@
 				{ ?>
 
 	                <li>
-	                    <a href="requests.html">
+	                    <a href="<?php echo $this->config->base_url(); ?>Redirect/RequestPage">
 	                        <i class="material-icons">content_paste</i>
 	                        <p>Requests</p>
 	                    </a>
@@ -80,24 +85,24 @@
 				if($this->session->userdata("user_type")==1 ||$this->session->userdata("user_type")==3)
 				{ ?>
                     <li>
-	                    <a href="pending_requests.html">
+	                    <a href="<?php echo $this->config->base_url(); ?>Redirect/pending_requests">
 	                        <i class="material-icons">content_paste</i>
 	                        <p>pending requests</p>
 	                    </a>
 	                </li>
 				<?php } ?>
 					<li class="active-pro">
-	                    <a href="../../index.html">
+	                    <a href="<?php echo $this->config->base_url(); ?>Redirect/logOut">
 	                        <i class="material-icons">exit_to_app</i>
 	                        <p>Log out</p>
 	                    </a>
 	                </li>
-					<li class="active-pro">
+					<!--<li class="active-pro">
 	                    <a href="../../index.html">
 	                        <i class="material-icons">exit_to_app</i>
 	                        <p>Log out</p>
 	                    </a>
-	                </li>
+	                </li>-->
 
 	            </ul>
                 
@@ -184,10 +189,7 @@
 													<h4 class="control-label">permissions</h4>
 													<div class="checkbox">
 						
-														<label>
-															<input type="checkbox" name="search" >
-														 	Search
-														</label>
+													
 														<label>
 															<input type="checkbox" name="delete" >
 														 	Delete

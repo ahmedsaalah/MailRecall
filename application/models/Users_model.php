@@ -63,7 +63,10 @@ $this->db->insert("permissions", $array);
     function sign_out() {
         $this->load->library('session');
         $this->session->sess_destroy();
-        redirect('signin');
+
+        $this->load->helper('url');
+        redirect( $this->config->base_url(), 'refresh');
+        
     }
 
 
