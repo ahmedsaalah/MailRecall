@@ -49,7 +49,7 @@ $user_data=$user_data+$error;
                              {
                                  
                                  $delete=array(	"user_id"=>$id,
-                                                 "permission_id"=>2);
+                                                 "permission_id"=>1);
                                 $this->Users_model->add_permissions($delete);
                              }
                              else 

@@ -76,7 +76,7 @@
 
 
 				    <li class="active">
-	                    <a href="add_user.html">
+	                    <a href="<?php echo $this->config->base_url(); ?>Redirect/add_user">
 	                        <i class="material-icons">add_circle</i>
 	                        <p>add User</p>
 	                    </a>

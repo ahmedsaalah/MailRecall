@@ -25,11 +25,24 @@ class Redirect extends CI_Controller {
 
 	
 	}
+	public function add_user()
+	{
+
+            $this->load->library('session');
+        	if($this->session->userdata("user_type")==1 )
+				{
+       				 $this->load->view('admin/add_user');
+				}
+
+	}
 
 	public function SearchPage()
     {
-
-        $this->load->view('user/search');
+        $this->load->library('session');
+        	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==2 )
+				{
+       				 $this->load->view('user/search');
+				}
 	}
     public function RequestPage()
     {
@@ -45,12 +58,15 @@ class Redirect extends CI_Controller {
 
                 }
 
-        $this->load->view('user/search');
 	}
     public function pending_requests()
     {
+		  $this->load->library('session');
+        	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==3 )
+				{
 
-        $this->load->view('admin/pending_requests');
+        			$this->load->view('admin/pending_requests');
+				}
 	}
     public function logOut()
     {
