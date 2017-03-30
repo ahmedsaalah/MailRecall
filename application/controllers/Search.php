@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Search extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,17 +25,10 @@ class Welcome extends CI_Controller {
 
 		//$this->load->view('signin/signin_form');
 		$this->load->library('session');
-		  if($this->session->userdata('user_email'))
-		{
-		  $this->load->view('admin/add_user');
-		}
-		else 
-		{
-	    	$this->load->view('signin/signin_form');
-		}
+		
 	}
 
-	public function login(){
+	public function Search(){
 
         $emailData =new EmailData();
 				$emailData->dateFrom="ee";
@@ -43,17 +36,6 @@ class Welcome extends CI_Controller {
 				echo "==================================================";
 				$this->Users_model->test($emailData);
 
-  //       $email= $this->input->post("user");
-  //       $password = $this->input->post("pass");
-	// 	$this->load->library('session');
-	// 	//var_dump($this->session->userdata());
-  //       if($this->Users_model->authenticate($email, $password)||$this->session->userdata('user_email'))
-	// 	{
-	// 	  $this->load->view('user/search');
-	// 	}
-	// 	else 
-	// 	{
-	//     	$this->load->view('signin/signin_form');
-	// 	}
+
 	 }
 }

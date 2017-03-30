@@ -138,4 +138,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array('Crud_model',
-                           'Users_model');
+                           'Users_model','EmailData','RecallSystem');
