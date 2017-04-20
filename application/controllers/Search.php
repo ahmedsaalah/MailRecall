@@ -25,17 +25,75 @@ class Search extends CI_Controller {
 
 		//$this->load->view('signin/signin_form');
 		$this->load->library('session');
+	
 		
 	}
 
-	public function Search(){
+
+	public function Searchemail(){
+
+
 
         $emailData =new EmailData();
-				$emailData->dateFrom="ee";
-				var_dump($emailData);
-				echo "==================================================";
-				$this->Users_model->test($emailData);
+				
+			    $emailData->sender = $this->input->post("senderEmail");
+				$emailData->recipient = $this->input->post("recepientEmail");
+				$emailData->dateFrom = $this->input->post("dateFrom");
+				$emailData->dateTo = $this->input->post("dateTo");
+				$emailData->subject = $this->input->post("subject");
+				$emailData->keyword = $this->input->post("body");
+				$emailData->targetFolder = $this->input->post("Targetfolder");
+				$reason= $this->input->post("reason");
+
+				
+					$this->load->library('session');
+		
+				$emailData->targetMailbox=$this->session->userdata('user_email');
+				if ($this->input->post("usermailbox")!= null)
+				{
+
+					$emailData->searchedMailBox = $this->input->post("usermailbox");
+					$emailData->groupOrUser=0;
+
+				}
+				else 
+				{
+					$emailData->searchedMailBox = $this->input->post("Groupmailbox");
+					$emailData->groupOrUser=1;
+				}
+				
+				
+				$therequest=$this->RecallSystem->searchForEmail($emailData);
+				
+				
+				$filename=$this->file->writeCmd($therequest);
+				var_dump($this->session->userdata('user_id'));
+				$theRequest = array(
+
+			"user_id"=>$this->session->userdata('user_id'),
+			"request" => $therequest,
+			"reason"=>$reason,
+			"filename" =>$filename
+  
+        );
+
+var_dump($this->session->userdata('user_type'));
+			
+			  if ($this->session->userdata('user_type')=='1')
+			  {
+				   var_dump($theRequest);
+				  $conc= array(
+					  "adminAccept" =>"1"
 
 
+				  );
+				  $theRequest=$theRequest+$conc;
+			  }
+			 
+       		  $this->requests->add_request($theRequest);
+				
+echo"===================================================================";
+//echo $this->RecallSystem->searchForEmail($emailData);
+				
 	 }
 }

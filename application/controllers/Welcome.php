@@ -37,23 +37,20 @@ class Welcome extends CI_Controller {
 
 	public function login(){
 
-        $emailData =new EmailData();
-				$emailData->dateFrom="ee";
-				var_dump($emailData);
-				echo "==================================================";
-				$this->Users_model->test($emailData);
 
-  //       $email= $this->input->post("user");
-  //       $password = $this->input->post("pass");
-	// 	$this->load->library('session');
-	// 	//var_dump($this->session->userdata());
-  //       if($this->Users_model->authenticate($email, $password)||$this->session->userdata('user_email'))
-	// 	{
-	// 	  $this->load->view('user/search');
-	// 	}
-	// 	else 
-	// 	{
-	//     	$this->load->view('signin/signin_form');
-	// 	}
+			
+
+        $email= $this->input->post("user");
+        $password = $this->input->post("pass");
+		$this->load->library('session');
+		//var_dump($this->session->userdata());
+        if($this->Users_model->authenticate($email, $password)||$this->session->userdata('user_email'))
+		{
+		  $this->load->view('user/search');
+		}
+		else 
+		{
+	    	$this->load->view('signin/signin_form');
+		}
 	 }
 }

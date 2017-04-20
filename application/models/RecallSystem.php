@@ -1,27 +1,31 @@
 <?php
 class RecallSystem extends CI_Model
 {
+
+
+
 	public function searchForEmail($emailData){
 		$count=0;
 		$searchQuery="";
-
-		if(!is_null($emailData->datefrom) && !is_null($emailData->dateto))
+		var_dump($emailData);
+        
+		if(!is_null($emailData->dateFrom) && !is_null($emailData->dateTo))
 		{
-		        $searchQuery .= "Sent:\"$emailData->datefrom..$emailData->dateto\"";
+		        $searchQuery .= "Sent:\"$emailData->dateFrom..$emailData->dateTo\"";
 
 		    $count=1;
 		    
 		}
-		else if(!is_null($emailData->datefrom) && is_null($emailData->dateto))
+		else if(!is_null($emailData->dateFrom) && is_null($emailData->dateto))
 		{
-		    $searchQuery .= "Sent:\"$emailData->datefrom\"";
+		    $searchQuery .= "Sent:\"$emailData->dateFrom\"";
 
 		    $count=1;
 		   
 		}
-		else if(is_null($emailData->datefrom) && !is_null($emailData->dateto))
+		else if(is_null($emailData->dateFrom) && !is_null($emailData->dateTo))
 		{
-		    $searchQuery .= "Sent:\"$emailData->dateto\"";
+		    $searchQuery .= "Sent:\"$emailData->dateTo\"";
 
 		    $count=1;
 		    
@@ -75,17 +79,18 @@ class RecallSystem extends CI_Model
 
 		}
 
-		if(is_null($emailData->MailBox))
+		if(is_null($emailData->searchedMailBox))
 		{
-		    $emailData->MailBox='';
+		    $emailData->searchedMailBox='';
+			
 		}
-		if($GORU==0){
+		if($emailData->groupOrUser==0){
 
-			return "Get-Mailbox $emailData->MailBox | Search-Mailbox -SearchQuery { $searchQuery } -TargetMailbox $emailData->TargetMailbox -TargetFolder $emailData->TargetFolder";
+			return "Get-Mailbox $emailData->searchedMailBox | Search-Mailbox -SearchQuery { $searchQuery } -TargetMailbox $emailData->targetMailbox -TargetFolder $emailData->targetFolder";
 		}
 		else {
 
-			return "Get-DistributionGroupMember -Identity \"$emailData->MailBox\" | Search-Mailbox -SearchQuery { $searchQuery } -TargetMailbox $emailData->TargetMailbox -TargetFolder $emailData->TargetFolder";
+			return "Get-DistributionGroupMember -Identity \"$emailData->searchedMailBox\" | Search-Mailbox -SearchQuery { $searchQuery } -TargetMailbox $emailData->targetMailbox -TargetFolder $emailData->targetFolder";
 
 		}
 	

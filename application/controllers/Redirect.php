@@ -33,6 +33,10 @@ class Redirect extends CI_Controller {
 				{
        				 $this->load->view('admin/add_user');
 				}
+			else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
 
 	}
 
@@ -43,6 +47,10 @@ class Redirect extends CI_Controller {
 				{
        				 $this->load->view('user/search');
 				}
+			else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
 	}
     public function RequestPage()
     {
@@ -56,17 +64,32 @@ class Redirect extends CI_Controller {
                 {
                     $this->load->view('user/requests');
 
-                }
+                }else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
 
 	}
     public function pending_requests()
     {
 		  $this->load->library('session');
-        	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==3 )
+        	if($this->session->userdata("user_type")==1)
 				{
+					$data['requests']=$this->requests->getRequestsForAdmin();
 
-        			$this->load->view('admin/pending_requests');
+        			$this->load->view('admin/pending_requests',$data);
 				}
+				else if($this->session->userdata("user_type")==2 )
+
+				{
+					$data['requests']=$this->requests->getRequestsForHr();
+
+						$this->load->view('hr/pending_requests',$data);
+				}
+				else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
 	}
     public function logOut()
     {

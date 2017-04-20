@@ -20,5 +20,7 @@ class EmailData extends CI_Model
         $searchedMailBox = NULL;
         $groupOrUser = NULL;
     }
+
+
 }
 ?>

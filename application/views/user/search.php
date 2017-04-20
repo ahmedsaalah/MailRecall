@@ -73,18 +73,18 @@
 	                                <h3 class="title">Search</h3>
 	                            </div>
 	                            <div class="card-content">
-	                                <form action="requests.html">
+	                                <form action="<?php echo $this->config->base_url(); ?>Search/Searchemail" method="post">
 	                                    <div class="row">
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label">Sender mail Address</label>
-													<input type="email" class="form-control" >
+													<input type="email" name="senderEmail" class="form-control" >
 												</div>
 	                                        </div>
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label">recipient mail Address</label>
-													<input type="email" class="form-control" >
+													<input type="email" name="recepientEmail" class="form-control" >
 												</div>
 	                                        </div>
 	                                    </div>
@@ -92,13 +92,13 @@
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label">Date from </label>
-													<input type="email" class="form-control" >
+													<input type="text" name="dateFrom"class="form-control" >
 												</div>
 	                                        </div>
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label">Date To</label>
-													<input type="email" class="form-control" >
+													<input type="text" name="dateTo"class="form-control" >
 												</div>
 	                                        </div>
 	                                    </div>
@@ -107,7 +107,7 @@
 	                                        <div class="col-md-12">
 												<div class="form-group label-floating">
 													<label class="control-label">Subject</label>
-													<input type="text" class="form-control" >
+													<input type="text" name="subject" class="form-control" >
 												</div>
 	                                        </div>
 	                                    </div>
@@ -115,36 +115,43 @@
 	                                        <div class="col-md-12">
 												<div class="form-group label-floating">
 													<label class="control-label">Body -Not Recommended-</label>
-													<input type="text" class="form-control" >
+													<input type="text" name="body"class="form-control" >
 												</div>
 	                                        </div>
 	                                    </div>
-										<div class="row">
+																				<div class="row">
 	                                        <div class="col-md-12">
 												<div class="form-group label-floating">
-													<h4 class="control-label">Databases</h4>
-													<div class="checkbox">
-														<label>
-															<input type="checkbox" name="optionsCheckboxes" checked>
-														 	Smart
-														</label>
-														<label>
-															<input type="checkbox" name="optionsCheckboxes" checked>
-														 	October
-														</label>
-														<label>
-															<input type="checkbox" name="optionsCheckboxes" checked>
-														 	Alexandria
-														</label>
-														<label>
-															<input type="checkbox" name="optionsCheckboxes" checked>
-														 	Haram
-														</label>
-													</div>
-													
+													<label class="control-label">Target folder</label>
+													<input type="text" name="Targetfolder"class="form-control" >
 												</div>
 	                                        </div>
-	                                    </div>                                       
+	                                    </div>
+										  
+											    <div class="col-md-12">
+												<div class="form-group label-floating">
+													<label class="control-label">certain User MailBox</label>
+													<input type="text" name="usermailbox" class="form-control" >
+												</div>
+	                                        </div>
+	                            			<div class="row">
+	                                        <div class="col-md-12">
+												<div class="form-group label-floating">
+													<label class="control-label">GroupMember MailBox</label>
+													<input type="text" name="Groupmailbox" class="form-control" >
+												</div>
+	                                        </div>
+
+													<div class="row">
+	                                        <div class="col-md-12">
+												<div class="form-group label-floating">
+													<label class="control-label">The Reason for Search</label>
+													<textarea  name="reason" class="form-control" >The Reason for Search</textarea>
+												</div>
+	                                        </div>
+
+	                                    </div>
+        </div>			
 	                                    <button type="submit" class="btn btn-primary pull-right" >Search</button>
 	                                    <div class="clearfix"></div>
 	                                </form>
