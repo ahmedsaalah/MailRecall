@@ -33,7 +33,7 @@ class Signup extends CI_Controller {
                     $error= array("error" =>" Email already exist");
 $user_data=$user_data+$error;
 
-                    $this->load->view('admin/add_user',$user_data);
+                    $this->load->template('admin/add_user',$user_data);
                 
                 }
                 else 

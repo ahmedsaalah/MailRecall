@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');
 		  if($this->session->userdata('user_email'))
 		{
-		  $this->load->view('admin/add_user');
+		  $this->load->template('admin/add_user');
 		}
 		else 
 		{
@@ -46,7 +46,7 @@ class Welcome extends CI_Controller {
 		//var_dump($this->session->userdata());
         if($this->Users_model->authenticate($email, $password)||$this->session->userdata('user_email'))
 		{
-		  $this->load->view('user/search');
+		  $this->load->template('user/search');
 		}
 		else 
 		{

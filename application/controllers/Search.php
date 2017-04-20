@@ -77,8 +77,7 @@ class Search extends CI_Controller {
   
         );
 
-var_dump($this->session->userdata('user_type'));
-			
+
 			  if ($this->session->userdata('user_type')=='1')
 			  {
 				   var_dump($theRequest);

@@ -31,7 +31,7 @@ class Redirect extends CI_Controller {
             $this->load->library('session');
         	if($this->session->userdata("user_type")==1 )
 				{
-       				 $this->load->view('admin/add_user');
+       				 $this->load->template('admin/add_user');
 				}
 			else
 			{
@@ -45,7 +45,7 @@ class Redirect extends CI_Controller {
         $this->load->library('session');
         	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==2 )
 				{
-       				 $this->load->view('user/search');
+       				 $this->load->template('user/search');
 				}
 			else
 			{
@@ -57,12 +57,12 @@ class Redirect extends CI_Controller {
         $this->load->library('session');
         	if($this->session->userdata("user_type")==1 )
 				{
-                    $this->load->view('admin/requests');
+                    $this->load->template('admin/requests');
 
                 }
                 else if ($this->session->userdata("user_type")==2)
                 {
-                    $this->load->view('user/requests');
+                    $this->load->template('user/requests');
 
                 }else
 			{
@@ -77,14 +77,14 @@ class Redirect extends CI_Controller {
 				{
 					$data['requests']=$this->requests->getRequestsForAdmin();
 
-        			$this->load->view('admin/pending_requests',$data);
+        			$this->load->template('admin/pending_requests',$data);
 				}
 				else if($this->session->userdata("user_type")==2 )
 
 				{
 					$data['requests']=$this->requests->getRequestsForHr();
 
-						$this->load->view('hr/pending_requests',$data);
+						$this->load->template('hr/pending_requests',$data);
 				}
 				else
 			{
