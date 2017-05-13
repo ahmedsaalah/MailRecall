@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 */
 
 
-$autoload['libraries'] = array('database',  'form_validation', 'encrypt');
+$autoload['libraries'] = array('database',  'form_validation', 'encrypt','encryption');
 
 
 
@@ -94,7 +94,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'download', 'file', 'form','write_logs');
+$autoload['helper'] = array('url', 'download', 'file', 'form','write_logs','send_email');
 
 /*
 | -------------------------------------------------------------------
@@ -137,4 +137,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Crud_model','Users_model','EmailData','RecallSystem','file','requests');
+$autoload['model'] = array('Crud_model','Settings_model','Users_model','EmailData','RecallSystem','file','requests');

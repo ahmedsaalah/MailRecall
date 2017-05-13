@@ -27,7 +27,25 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');
 		  if($this->session->userdata('user_email'))
 		{
-		  $this->load->template('admin/add_user');
+		  		$data['active']='search';
+        $this->load->library('session');
+        	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==2 )
+				{
+       				 $this->load->template('user/search',$data);
+				}
+				else if($this->session->userdata("user_type")==3 )
+
+				{$data['active']='pending_requests';
+						$data['requests']=$this->requests->getRequestsForHr();
+						
+						$this->load->template('hr/pending_requests',$data);
+				}
+				else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
+
+
 		}
 		else 
 		{
@@ -46,7 +64,23 @@ class Welcome extends CI_Controller {
 		//var_dump($this->session->userdata());
         if($this->Users_model->authenticate($email, $password)||$this->session->userdata('user_email'))
 		{
-		  $this->load->template('user/search');
+		   		$data['active']='search';
+        $this->load->library('session');
+        	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==2 )
+				{
+       				 $this->load->template('user/search',$data);
+				}
+				else if($this->session->userdata("user_type")==3 )
+
+				{$data['active']='pending_requests';
+						$data['requests']=$this->requests->getRequestsForHr();
+						
+						$this->load->template('hr/pending_requests',$data);
+				}
+				else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
 		}
 		else 
 		{

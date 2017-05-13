@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/MailRecall/';
+$config['base_url'] = 'https://localhost:8081/MailRecall/';
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +93,7 @@ $config['language']	= 'english';
 |
 */
 $config['charset'] = 'UTF-8';
+
 
 /*
 |--------------------------------------------------------------------------

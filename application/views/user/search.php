@@ -21,7 +21,7 @@
 	                    <div class="col-md-12">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="blue">
-	                                <h3 class="title">Search</h3>
+	                                <h3 class="title">Request</h3>
 	                            </div>
 	                            <div class="card-content">
 	                                <form action="<?php echo $this->config->base_url(); ?>Search/Searchemail" method="post">
@@ -43,13 +43,15 @@
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label">Date from </label>
-													<input type="text" name="dateFrom"class="form-control" >
+													<input type="date" name="dateFrom" class="datepicker">
+													<!--<input type="text" name="dateFrom"class="form-control" >-->
 												</div>
 	                                        </div>
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label">Date To</label>
-													<input type="text" name="dateTo"class="form-control" >
+													<input type="date" name="dateTo" class="datepicker">
+													<!--<input type="text" name="dateTo"class="form-control" >-->
 												</div>
 	                                        </div>
 	                                    </div>
@@ -101,9 +103,33 @@
 												</div>
 	                                        </div>
 
+
+											
+											<div class="col-sm-6">
+		                    <div class="title">
+		                        <h3>Request Type</h3>
+		                    </div>
+
+							<div class="radio" >
+								<label>
+									<input type="radio" name="requestType" value="search">
+									Search
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="requestType" value="delete">
+									Delete
+								</label>
+							</div>
+			
+		                
+	                                        </div>
+											
+
 	                                    </div>
         </div>			
-	                                    <button type="submit" class="btn btn-primary pull-right" >Search</button>
+	                                    <button type="submit" class="btn btn-primary pull-right" >Submit</button>
 	                                    <div class="clearfix"></div>
 	                                </form>
 	                            </div>

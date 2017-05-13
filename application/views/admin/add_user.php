@@ -81,7 +81,10 @@
 												<div class="form-group label-floating">
 													<h4 class="control-label">permissions</h4>
 													<div class="checkbox">
-						
+							<label>
+															<input type="checkbox" name="search" >
+														 	Search
+														</label>
 													
 														<label>
 															<input type="checkbox" name="delete" >

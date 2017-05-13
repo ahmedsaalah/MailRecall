@@ -33,47 +33,83 @@
 	                                <table class="table">
 	                                    <thead class="text-gray">
 	                                    	<th>Request</th>
+											<th>Reason</th>
 	                                    	<th>HR approval</th>
 	                                    	<th>Admin approval</th>
 											<th></th>
 	                                    </thead>
 	                                    <tbody>
-	                                        <tr>
-	                                        	<td><a><p class="text-gray">Sender:Ahmed@GP.loacal, Recepient:Serag@gp.local, Subject:spam</p></a></td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-green btn-round" disabled>Approved<div class="ripple-container"></div></a>
-												</td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-red btn-round" disabled>pending<div class="ripple-container"></div></a>
-												</td>
-												<td class="te3xt-primary"> 
-													<a href="" class="btn btn-round" disabled>submit<div class="ripple-container"></div></a>
-												</td>
-	                                        </tr>
-	                                        <tr>
-	                                        	<td><a><p class="text-gray">Sender:Serag@GP.loacal, Recepient:salah@gp.local, Subject:Meeting</p></a></td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-green btn-round" disabled>Approved<div class="ripple-container"></div></a>
-												</td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-green btn-round" disabled>Approved<div class="ripple-container"></div></a>
-												</td>
-												<td class="text-primary"> 
-													<a href="search_result.html" class="btn btn-round" >submit<div class="ripple-container"></div></a>
-												</td>
-	                                        </tr>
-	                                        <tr>
-	                                        	<td><a><p class="text-gray">Sender:Hamed@GP.loacal, Recepient:Ayman@gp.local, Subject:personal information, Date from : 31/21/2016 20:46, body: rabie</p></a></td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-red btn-round" disabled>pending<div class="ripple-container"></div></a>
-												</td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-red btn-round" disabled>pending<div class="ripple-container"></div></a>
-												</td>
-												<td class="text-primary"> 
-													<a href="#" class="btn btn-round" disabled>submit<div class="ripple-container"></div></a>
-												</td>
-	                                        </tr>
+	                                       										<?php
+																				   
+										
+										 if(!is_null($requests))
+										{
+
+										  	foreach($requests as $request )
+                                    		{
+
+
+	                                      	echo"<tr>";
+	                                        	echo"<td><a><p class='text-gray'>$request->request</p></a></td>";
+												echo"<td><a><p class='text-gray'>$request->reason</p></a></td>";
+
+												if($request->hrAccept==0||$request->adminAccept==0)
+												{
+													if ($request->hrAccept==0)
+													{
+														echo "<td class='text-primary'> 
+														<a href='#' class='btn btn-red btn-round' disabled>pending<div class='ripple-container'></div></a>
+														</td>";
+													}
+													else 
+													{
+														echo "<td class='text-primary'> 
+														<a href='#' class='btn btn-green btn-round' disabled>Approved<div class='ripple-container'></div></a>
+														</td>";
+
+													}
+													if ($request->adminAccept==0)
+													{
+														echo "<td class='text-primary'> 
+														<a href='#' class='btn btn-red btn-round' disabled>pending<div class='ripple-container'></div></a>
+														</td>";
+													}
+													else 
+													{
+														echo "<td class='text-primary'> 
+														<a href='#' class='btn btn-green btn-round' disabled>Approved<div class='ripple-container'></div></a>
+														</td>";
+
+
+													}
+
+
+													echo "<td class='te3xt-primary'> 
+													<a href='#' class='btn btn-round' disabled>submit<div class='ripple-container'></div></a>
+												</td>";
+												}
+												else 
+												{
+														echo "<td class='text-primary'> 
+													<a href='#' class='btn btn-green btn-round' disabled>Approved<div class='ripple-container'></div></a>
+												</td>";
+
+														echo "<td class='text-primary'> 
+													<a href='#' class='btn btn-green btn-round' disabled>Approved<div class='ripple-container'></div></a>
+												</td>";
+												
+													echo "<td class='te3xt-primary'> 
+													<button class='btn btn-round' id='submitRequest' value='$request->filename' >submit<div class='ripple-container'></div></button>
+												</td>";
+												}
+												
+	
+	                                        	echo "</tr>";
+												}
+									
+										}
+									
+									?>
 	                                    </tbody>
 	                                </table>
 	                            </div>

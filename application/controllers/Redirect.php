@@ -27,11 +27,25 @@ class Redirect extends CI_Controller {
 	}
 	public function add_user()
 	{
-
+			$data['active']='add_user';
             $this->load->library('session');
         	if($this->session->userdata("user_type")==1 )
 				{
-       				 $this->load->template('admin/add_user');
+       				 $this->load->template('admin/add_user',$data);
+				}
+			else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
+
+	}
+	public function setup()
+	{
+			$data['active']='settings';
+            $this->load->library('session');
+        	if($this->session->userdata("user_type")==1 )
+				{
+       				 $this->load->template('admin/setup',$data);
 				}
 			else
 			{
@@ -42,10 +56,11 @@ class Redirect extends CI_Controller {
 
 	public function SearchPage()
     {
+		$data['active']='search';
         $this->load->library('session');
         	if($this->session->userdata("user_type")==1||$this->session->userdata("user_type")==2 )
 				{
-       				 $this->load->template('user/search');
+       				 $this->load->template('user/search',$data);
 				}
 			else
 			{
@@ -55,14 +70,18 @@ class Redirect extends CI_Controller {
     public function RequestPage()
     {
         $this->load->library('session');
+		$data['active']='requests';
+		$data['requests']=$this->requests->getUserRequestById($this->session->userdata("user_id"));
         	if($this->session->userdata("user_type")==1 )
 				{
-                    $this->load->template('admin/requests');
+					
+                    $this->load->template('admin/requests',$data);
+
 
                 }
                 else if ($this->session->userdata("user_type")==2)
                 {
-                    $this->load->template('user/requests');
+                    $this->load->template('user/requests',$data);
 
                 }else
 			{
@@ -73,17 +92,18 @@ class Redirect extends CI_Controller {
     public function pending_requests()
     {
 		  $this->load->library('session');
+		  $data['active']='pending_requests';
         	if($this->session->userdata("user_type")==1)
 				{
-					$data['requests']=$this->requests->getRequestsForAdmin();
+					$data['requests']=$this->requests->getPendingRequestsForAdmin();
 
         			$this->load->template('admin/pending_requests',$data);
 				}
-				else if($this->session->userdata("user_type")==2 )
+				else if($this->session->userdata("user_type")==3 )
 
 				{
-					$data['requests']=$this->requests->getRequestsForHr();
-
+						$data['requests']=$this->requests->getPendingRequestsForHr();
+						
 						$this->load->template('hr/pending_requests',$data);
 				}
 				else

@@ -20,9 +20,20 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="<?php echo $this->config->base_url(); ?>_/css/demo.css" rel="stylesheet" />
+   <link href="<?php echo $this->config->base_url(); ?>_/fonts/aweome.min.css" rel="stylesheet" />
 
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+<link href="<?php echo $this->config->base_url(); ?>_/fonts/i1.css" rel="stylesheet" />
+
+<link href="<?php echo $this->config->base_url(); ?>_/fonts/i2.css" rel="stylesheet" />
+  <!--     Fonts and icons     -->
+  <script src="<?php echo $this->config->base_url(); ?>_/js/j.min.js" type="text/javascript"></script>
+
+ 
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->config->base_url(); ?>_/css/materialize.min.css"  media="screen,projection"/>
+   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     -->
 
 </head>

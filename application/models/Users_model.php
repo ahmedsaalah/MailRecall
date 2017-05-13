@@ -13,11 +13,25 @@ class Users_model extends Crud_model {
     function authenticate($email, $password) {
 
         $result = $this->db->get_where($this->table, array('email' => $email, 'password' => md5($password),'deleted'=>0));
+        $setup = $this->db->get("setup")->row();
+        
+
         if ($result->num_rows() == 1) {
-             $user_info = $result->row();
+                $user_info = $result->row();
+        if($setup->type == 0)
+        {
+            $recv = $setup->email;
+        }
+        else 
+        {
+            $recv =$user_info->email;
+        }
+
+         
             $this->load->library('session');
              $this->session->set_userdata('user_id', $user_info->id);
              $this->session->set_userdata('user_email', $user_info->email);
+             $this->session->set_userdata('receiver', $recv);
            
              $this->session->set_userdata('user_type', $user_info->type);
 
@@ -29,7 +43,8 @@ class Users_model extends Crud_model {
                 
 
              }
-             
+
+
             return true;
         }
         else 
@@ -68,7 +83,15 @@ $this->db->insert("permissions", $array);
         redirect( $this->config->base_url(), 'refresh');
         
     }
+    function getUserEamilByUserID($ID)
+    {
+                   $users  = $this->db->get_where($this->table , array('id' => $ID ))->result_array();
 
+                   
+                   return $users;    
+
+    }
+    
 
     function is_email_exists($email, $id = 0) {
         $result = $this->db->get_where($this->table,array("email" => $email, "deleted" => 0));
@@ -77,6 +100,12 @@ $this->db->insert("permissions", $array);
         } else {
             return false;
         }
+    }
+
+
+    function getAdminsandHr()
+    {
+        return $query = $this->db->get_where($this->table, array('type !=' => "2" ))->result_array();
     }
 
 

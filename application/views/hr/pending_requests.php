@@ -1,29 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo $this->config->base_url(); ?>_/images/logo.png" />
-	<link rel="icon" type="image/png" href="<?php echo $this->config->base_url(); ?>_/images/logo.png" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<title>Mail Recall</title>
-
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-
-    <!-- Bootstrap core CSS     -->
-    <link href="<?php echo $this->config->base_url(); ?>_/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!--  Material Dashboard CSS    -->
-    <link href="<?php echo $this->config->base_url(); ?>_/css/material-dashboard.css" rel="stylesheet"/>
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="<?php echo $this->config->base_url(); ?>_/css/demo.css" rel="stylesheet" />
-
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-</head>
 
 <body>
 
@@ -115,106 +89,89 @@
 										<div class="tab-pane active" id="search">
 											<table class="table">
 												<tbody>
-													<tr>
+												
+														
+									<?php	 if(!is_null($requests))
+										{
+
+										  	foreach($requests as $request )
+                                    		{
+												if($request->SorD==1)
+												{continue;}
+													echo "<tr>
 														<td>
-															<div class="checkbox">
+															<div class='checkbox'>
 																<label>
-																	<input type="checkbox" name="optionsCheckboxes" checked>
+																	<input type='checkbox' value='$request->id' name='checkboxAdminSearch' >
 																</label>
 															</div>
 														</td>
-														<td>Sign contract for "What are conference organizers afraid of?"</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
+														<td>$request->reason</td>
+														<td>$request->request</td>
+														<td class='td-actions text-right'>
+															<button type='button' rel=
+															'tooltip' title='view mail' data-toggle='modal' data-target=
+														'#viewMail' class=
+														'btn btn-simple btn-xs'>
+																<i class='material-icons'>mail</i>
 															</button>
 														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes">
-																</label>
-															</div>
-														</td>
-														<td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes">
-																</label>
-															</div>
-														</td>
-														<td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-														</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes" checked>
-																</label>
-															</div>
-														</td>
-														<td>Create 4 Invisible User Experiences you Never Knew About</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
+													</tr>";
+
+                                        }    }
+										   ?>
+
 												</tbody>
 											</table>
+																			<div class="card-footer">
+									 <button type="submit" id="DenySearch" class="btn btn-red pull-right">Deny</button>
+									 <button type="submit" id="AppSearch" class="btn  btn-primary pull-right">Approve</button>
+								</div>
+
 										</div>
 										<div class="tab-pane" id="delete">
 											<table class="table">
 												<tbody>
-													<tr>
+									<?php	 if(!is_null($requests))
+										{
+
+										  	foreach($requests as $request )
+                                    		{
+												if($request->SorD==0)
+												{continue;}
+
+													echo "<tr>
 														<td>
-															<div class="checkbox">
+															<div class='checkbox'>
 																<label>
-																	<input type="checkbox" name="optionsCheckboxes" checked>
+																	<input type='checkbox' value='$request->id' name='checkboxAdminDelete' >
 																</label>
 															</div>
 														</td>
-														<td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-														</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
+														<td>$request->reason</td>
+														<td>$request->request</td>
+														<td class='td-actions text-right'>
+															<button type='button' rel=
+															'tooltip' title='view mail' data-toggle='modal' data-target=
+														'#viewMail' class=
+														'btn btn-simple btn-xs'>
+																<i class='material-icons'>mail</i>
 															</button>
 														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes">
-																</label>
-															</div>
-														</td>
-														<td>Sign contract for "What are conference organizers afraid of?"</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
+													</tr>";
+
+                                        }    }
+										   ?>
+
+
+
 												</tbody>
 											</table>
+																	<div class="card-footer">
+									 <button type="submit" id="DenyDelete" class="btn btn-red pull-right">Deny</button>
+									 <button type="submit" id="AppDelete" class="btn  btn-primary pull-right">Approve</button>
+								</div>
+
 										</div>
 										<div class="tab-pane" id="copy">
 											<table class="table">
@@ -360,11 +317,100 @@
         </div>
     </div>
 </body>
-	<!--   Core JS Files   -->
-	<script src="<?php echo $this->config->base_url(); ?>_/js/jquery-3.1.0.min.js" type="text/javascript"></script>
-	<script src="<?php echo $this->config->base_url(); ?>_/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="<?php echo $this->config->base_url(); ?>_/js/material.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	
+<script>
+   
+        $("#DenyDelete").click(function(){
+			
+            
+																	
+            $.each($("input[name='checkboxAdminDelete']:checked"), function(){      
 
-	<!-- Material Dashboard javascript methods -->
-	<script src="<?php echo $this->config->base_url(); ?>_/js/material-dashboard.js"></script>	
-</html>
+					$.ajax({
+    url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+    type: 'POST',    
+    dataType: 'json',
+    data: { id: this.value , request:-1 ,user_type:3 },
+    success: function (data) {
+		
+		alert("Operation Successfully Completed");
+		window.location.href = window.location.href;
+       
+    }
+});
+                
+            });
+            
+        });
+
+
+        $("#AppDelete").click(function(){
+			
+            
+            $.each($("input[name='checkboxAdminDelete']:checked"), function(){            
+			$.ajax({
+				url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+				type: 'POST',    
+				dataType: 'json',
+				data: { id: this.value , request:1 ,user_type:3 },
+				success: function (data) {
+					
+					alert("Operation Successfully Completed");
+					window.location.href = window.location.href;
+				
+				}
+			});
+         
+        });
+   });
+
+        $("#AppSearch").click(function(){
+			
+          
+            $.each($("input[name='checkboxAdminSearch']:checked"), function(){        
+
+			$.ajax({
+				url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+				type: 'POST',    
+				dataType: 'json',
+				data: { id: this.value , request:1 ,user_type:3 },
+				success: function (data) {
+					
+					alert("Operation Successfully Completed");
+					window.location.href = window.location.href;
+
+				
+				}
+
+							
+				});
+            
+        });
+   
+
+});
+        $("#DenySearch").click(function(){
+			
+            
+            $.each($("input[name='checkboxAdminSearch']:checked"), function(){            
+			$.ajax({
+					url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+					type: 'POST',    
+					dataType: 'json',
+					data: { id: this.value , request:-1 ,user_type:3 },
+					success: function (data) {
+						
+						alert("Operation Successfully Completed");
+						window.location.href = window.location.href;
+						
+					
+					}
+					});
+            
+        });
+		});
+
+</script>
+
+

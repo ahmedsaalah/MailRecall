@@ -58,106 +58,93 @@
 										<div class="tab-pane active" id="search">
 											<table class="table">
 												<tbody>
-													<tr>
+
+
+														
+									<?php	 if(!is_null($requests))
+										{
+
+										  	foreach($requests as $request )
+                                    		{
+												if($request->SorD==1)
+												{continue;}
+
+													echo "<tr>
 														<td>
-															<div class="checkbox">
+															<div class='checkbox'>
 																<label>
-																	<input type="checkbox" name="optionsCheckboxes" checked>
+																	<input type='checkbox' value='$request->id' name='checkboxAdminSearch' >
 																</label>
 															</div>
 														</td>
-														<td>Sign contract for "What are conference organizers afraid of?"</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
+														<td>$request->reason</td>
+														<td>$request->request</td>
+														<td class='td-actions text-right'>
+															<button type='button' rel=
+															'tooltip' title='view mail' data-toggle='modal' data-target=
+														'#viewMail' class=
+														'btn btn-simple btn-xs'>
+																<i class='material-icons'>mail</i>
 															</button>
 														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes">
-																</label>
-															</div>
-														</td>
-														<td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes">
-																</label>
-															</div>
-														</td>
-														<td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-														</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes" checked>
-																</label>
-															</div>
-														</td>
-														<td>Create 4 Invisible User Experiences you Never Knew About</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
+													</tr>";
+
+                                        }    }
+										   ?>
+
+
+
 													</tr>
 												</tbody>
 											</table>
+														<div class="card-footer">
+									 <button type="submit" id="DenySearch" class="btn btn-red pull-right">Deny</button>
+									 <button type="submit" id="AppSearch" class="btn  btn-primary pull-right">Approve</button>
+								</div>
+
 										</div>
 										<div class="tab-pane" id="delete">
 											<table class="table">
 												<tbody>
-													<tr>
+			<?php	 if(!is_null($requests))
+										{
+
+										  	foreach($requests as $request )
+                                    		{
+												if($request->SorD==0)
+												{continue;}
+
+													echo "<tr>
 														<td>
-															<div class="checkbox">
+															<div class='checkbox'>
 																<label>
-																	<input type="checkbox" name="optionsCheckboxes" checked>
+																	<input type='checkbox' value='$request->id' name='checkboxAdminDelete' >
 																</label>
 															</div>
 														</td>
-														<td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-														</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
+														<td>$request->reason</td>
+														<td>$request->request</td>
+														<td class='td-actions text-right'>
+															<button type='button' rel=
+															'tooltip' title='view mail' data-toggle='modal' data-target=
+														'#viewMail' class=
+														'btn btn-simple btn-xs'>
+																<i class='material-icons'>mail</i>
 															</button>
 														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="checkbox">
-																<label>
-																	<input type="checkbox" name="optionsCheckboxes">
-																</label>
-															</div>
-														</td>
-														<td>Sign contract for "What are conference organizers afraid of?"</td>
-														<td class="td-actions text-right">
-															<button type="button" rel="tooltip" title="view mail" data-toggle="modal" data-target="#viewMail" class="btn btn-simple btn-xs">
-																<i class="material-icons">mail</i>
-															</button>
-														</td>
-													</tr>
+													</tr>";
+
+                                        }    }
+										   ?>
+
+
+
 												</tbody>
 											</table>
+														<div class="card-footer">
+									 <button type="submit" id="DenyDelete" class="btn btn-red pull-right">Deny</button>
+									 <button type="submit" id="AppDelete" class="btn  btn-primary pull-right">Approve</button>
+								</div>
 										</div>
 										<div class="tab-pane" id="copy">
 											<table class="table">
@@ -213,10 +200,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="card-footer">
-									 <button type="submit" class="btn btn-red pull-right">Deny</button>
-									 <button type="submit" class="btn  btn-primary pull-right">Approve</button>
-								</div>
+					
 							</div>
 						</div>
 				</div>
@@ -302,5 +286,102 @@
             </div>
         </div>
     </div>
+
 </body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	
+<script>
+   
+        $("#DenyDelete").click(function(){
+			
+            
+																	
+            $.each($("input[name='checkboxAdminDelete']:checked"), function(){      
+
+					$.ajax({
+    url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+    type: 'POST',    
+    dataType: 'json',
+    data: { id: this.value , request:-1 ,user_type:1 },
+    success: function (data) {
+		
+alert("Operation Successfully Completed");
+window.location.href = window.location.href;
+       
+    }
+
+                
+            });
+            
+        });        });
+
+
+        $("#AppDelete").click(function(){
+			
+            
+            $.each($("input[name='checkboxAdminDelete']:checked"), function(){            
+			$.ajax({
+				url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+				type: 'POST',    
+				dataType: 'json',
+				data: { id: this.value , request:1 ,user_type:1 },
+				success: function (data) {
+					
+alert("Operation Successfully Completed");
+window.location.href = window.location.href;
+
+				}
+			});
+         
+        });
+   });
+
+        $("#AppSearch").click(function(){
+			
+          
+            $.each($("input[name='checkboxAdminSearch']:checked"), function(){        
+
+			$.ajax({
+				url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+				type: 'POST',    
+				dataType: 'json',
+				data: { id: this.value , request:1 ,user_type:1 },
+				success: function (data) {
+				
+				alert("Operation Successfully Completed");
+				
+				window.location.href = window.location.href;
+
+				}
+
+							
+				});
+            
+        });
+		});
+
+   
+
+
+        $("#DenySearch").click(function(){
+			
+            
+            $.each($("input[name='checkboxAdminSearch']:checked"), function(){            
+			$.ajax({
+					url: "<?php echo $this->config->base_url(); ?>Request/AcceptorDenyRequest",
+					type: 'POST',    
+					dataType: 'json',
+					data: { id: this.value , request:-1 ,user_type:1 },
+					success: function (data) {
+						
+alert("Operation Successfully Completed");
+window.location.href = window.location.href;
+					
+					}
+					});
+            
+        });
+		 });
+
+</script>
 
