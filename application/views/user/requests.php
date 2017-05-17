@@ -34,6 +34,7 @@
 	                                    <thead class="text-gray">
 	                                    	<th>Request</th>
 											<th>Reason</th>
+											<th>Type </th>
 	                                    	<th>HR approval</th>
 	                                    	<th>Admin approval</th>
 											<th></th>
@@ -47,12 +48,19 @@
 
 										  	foreach($requests as $request )
                                     		{
-
+if($request->SorD==0)
+{
+	$type="Search";
+}
+else 
+{
+	$type="Delete";
+}
 
 	                                      	echo"<tr>";
 	                                        	echo"<td><a><p class='text-gray'>$request->request</p></a></td>";
 												echo"<td><a><p class='text-gray'>$request->reason</p></a></td>";
-
+				echo"<td><a><p class='text-gray'>$type</p></a></td>";
 												if($request->hrAccept==0||$request->adminAccept==0)
 												{
 													if ($request->hrAccept==0)
