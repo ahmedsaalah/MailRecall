@@ -89,6 +89,24 @@ class Redirect extends CI_Controller {
 			}
 
 	}
+	 public function Log()
+    {
+        $this->load->library('session');
+		$data['active']='Log';
+		$data['logs']=$this->log_model->getlogs();
+        	if($this->session->userdata("user_type")==1 )
+				{
+					
+                    $this->load->template('admin/logs',$data);
+
+
+                }
+                else
+			{
+				  redirect( $this->config->base_url(), 'refresh');
+			}
+
+	}
     public function pending_requests()
     {
 		  $this->load->library('session');

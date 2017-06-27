@@ -76,6 +76,7 @@ class Request extends Mail {
 
 	    public function runPs()
         {
+						
 						$psScriptPath="_/cmds/";
 
 						$file=$this->input->post("filename");
@@ -89,7 +90,9 @@ class Request extends Mail {
 
                       //$current = $this->encryption->encrypt($current);
                      	$command=$this->encryption->decrypt($current);
-					
+	echo $command;
+		//			$this->log_model->add_request($this->session->userdata('user_email'),$command,"Run" );
+       		 
 
 
  $f='_/cmds/exec/'.$newFile .'.ps1';

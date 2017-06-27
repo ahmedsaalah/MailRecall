@@ -109,6 +109,30 @@
 	                    </a>
 	                </li>
 				<?php } 
+				
+						if($this->session->userdata("user_type")==1)
+				{ 
+				
+						if ($active == "Log" )
+				{
+					echo  "<li class='active'>";
+
+				}
+				else
+				{
+					
+					echo "<li >";
+
+				}
+				
+				
+				?>
+				 <a href="<?php echo $this->config->base_url(); ?>Redirect/Log">
+	                        <i class="material-icons">content_paste</i>
+	                        <p>Logs</p>
+	                    </a>
+	                </li>
+				<?php } 
 						if($this->session->userdata("user_type")==1)
 				{ 
 				

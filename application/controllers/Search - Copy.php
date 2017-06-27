@@ -164,7 +164,8 @@ class Search extends Mail {
 				$emailData->keyword = $this->input->post("body");
 				$emailData->targetFolder = $this->input->post("Targetfolder");
 				$reason= $this->input->post("reason");
-      
+
+				
 					$this->load->library('session');
 				if (strlen($emailData->dateFrom)!=0)
 				{
@@ -234,7 +235,6 @@ class Search extends Mail {
 			"filename" =>$filename2
   
         );
-		
 		}
 		//used if make delete to make search also 
 		
@@ -275,19 +275,11 @@ class Search extends Mail {
 			//   {
 			// 	  $this->sendEmail();
 			//   }
-		  $this->requests->add_request($theRequest);
+			  
+       		  $this->requests->add_request($theRequest);
 				 	  if($requestType=="delete")
 				  {		
 					$this->requests->add_request($theRequest2);
-					          
-				$this->log_model->add_request($this->session->userdata('user_email'),$therequest,"delete" );
-				  $this->log_model->add_request($this->session->userdata('user_email'),$therequest2,"Search" );
-       		 
-				  }
-				  else 
-				  {
-					  	  $this->log_model->add_request($this->session->userdata('user_email'),$therequest,"Search" );
-       		
 
 				  }
 				

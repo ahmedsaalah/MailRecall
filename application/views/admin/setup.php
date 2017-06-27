@@ -1,8 +1,5 @@
 <body>
-
-
-	<div class="wrapper">
-	    
+	<div class="wrapper">    
 	    <div class="main-panel">
 			<nav class="navbar navbar-transparent navbar-absolute">
 				<div class="container-fluid">
@@ -25,13 +22,6 @@
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="blue">
 	                                <h3 class="title">credentials</h3>
-
-											<?php
-			//var_dump($this->session->userdata("permissions")[0]->permission_id);
-			
-			
-			?>
-
 									<?php 
 									if(isset($error))
 									echo $error;
@@ -54,108 +44,60 @@
 													<input type="password" name="pw" id="pw1" class="form-control" required>
 												</div>
 	                                        </div>
-	                                       
-										
-									                          
+										</div>						                          
 	                                    <button type="submit" id="usercred" class="btn btn-primary pull-right" >Add credentials</button>
 	                                    <div class="clearfix"></div>
 	                                </form>
 	                            </div>
 	                        </div>
 	                    </div>
-					
 	                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					 <div class="card">
-	                            <div class="card-header" data-background-color="blue">
-	                                <h3 class="title">Who receive the search</h3>
-
-											<?php
-			//var_dump($this->session->userdata("permissions")[0]->permission_id);
-			
-			
-			?>
-
-									<?php 
-									if(isset($error))
-									echo $error;
-									?>
-	                            </div>
-	                            <div class="card-content">
-	                                <form method="POST" id="idForm1">
-
-
-<div class="row" >
-<div class="col-md-12">
-<div class="form-group label-floating">
-				<label class="control-label" id="pass2">The receiver </label>
-												
-<select  id="choiceSection" name="type" class="form-control">
-
-<option value="0">Shared Mailbox</option>
-<option value="1">logged in user</option>
-
-</select>
-</div>
-</div>
-</div>
-										
-										<div class="row" id="permissionUser">
-	                                       <div class="row">
-	                                        <div class="col-md-12">
-												<div class="form-group label-floating">
-													<label class="control-label">Email</label>
-													<input type="email" name="email" class="form-control">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+									<div class="card-header" data-background-color="blue">
+										<h3 class="title">Who receive the search</h3>
+										<?php 
+										if(isset($error))
+										echo $error;
+										?>
+									</div>
+									<div class="card-content">
+										<form method="POST" id="idForm1">
+											<div class="row" >
+												<div class="col-md-12">
+													<div class="form-group label-floating">
+														<label class="control-label" id="pass2">The receiver </label>												
+														<select  id="choiceSection" name="type" class="form-control">
+															<option value="0">Shared Mailbox</option>
+															<option value="1">logged in user</option>
+														</select>
+													</div>
 												</div>
-	                                        </div>
-	                                    </div>
-	                                    </div>                                       
-	                    
-                            <button type="submit" class="btn btn-primary pull-right" >Submit</button>
-	                                    <div class="clearfix"></div>
-	                                </form>
-	                            </div>
-	                        </div>
-	                    </div>
-					
-	                </div>
-	            </div>
-	        </div>
+											</div>										
+											<div class="row" id="permissionUser">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group label-floating">
+															<label class="control-label">Email</label>
+															<input type="email" name="email" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
+											<button type="submit" class="btn btn-primary pull-right" >Submit</button>
+											<div class="clearfix"></div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+	            	</div>
+	        	</div>
 
-	    </div>
-		<!---  ===========================================================  -->
-		
-
+	    	</div>
+		</div>
 	</div>
-
 </body>
 
 
